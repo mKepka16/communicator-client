@@ -20,9 +20,35 @@ namespace communicator_client
     /// </summary>
     public partial class MainWindow : Window
     {
+        static MainWindow()
+        {
+            Connection.Start();
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+            this.SizeToContent = System.Windows.SizeToContent.WidthAndHeight;
+        }
+
+        private void registerButton_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow.registerWindow = new RegisterWindow();
+            RegisterWindow.registerWindow.Show();
+            this.Close();
+        }
+
+        private void loginButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow.loginWindow = new LoginWindow();
+            LoginWindow.loginWindow.Show();
+            this.Close();
+        }
+
+        private void mainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.MinWidth = this.Width;
+            this.MinHeight = this.Height;
         }
     }
 }
