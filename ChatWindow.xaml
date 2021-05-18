@@ -8,10 +8,13 @@
         xmlns:views="clr-namespace:communicator_client.Views"
         mc:Ignorable="d"
         FontSize="26"
-        Title="Kemik Communicator - chat" Height="450" Width="800">
+        Title="Kemik Communicator - chat" Height="450" Width="900" Loaded="Window_Loaded">
     <Window.Resources>
         <DataTemplate x:Name="chatView" DataType="{x:Type viewmodels:ChatViewModel}">
             <views:ChatView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="NewChatView" DataType="{x:Type viewmodels:NewChatViewModel}">
+            <views:NewChatView DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
     <Grid>
@@ -47,7 +50,8 @@
             Cursor="Hand"
             Grid.Row="3"
             Grid.Column="1"
-            Content="+"/>
+            Content="+"
+            Click="ChangeToNewChatView"/>
 
         <ScrollViewer Grid.Row="4" Grid.Column="1">
             <ItemsControl x:Name="ChatList" ItemsSource="{Binding List}">

@@ -80,6 +80,7 @@
     <Compile Include="Controllers\MessageReceiveController.cs" />
     <Compile Include="Controllers\PayloadDistributor.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\UserExistenceController.cs" />
     <Compile Include="DataTypes\ChatHistoryData.cs" />
     <Compile Include="DataTypes\ChatListData.cs" />
     <Compile Include="DataTypes\ChatListItemData.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="DataTypes\LoginData.cs" />
     <Compile Include="DataTypes\MessageReceiveData.cs" />
     <Compile Include="DataTypes\MessageSendData.cs" />
+    <Compile Include="DataTypes\NickData.cs" />
     <Compile Include="DataTypes\Payload.cs" />
     <Compile Include="DataTypes\RegisterData.cs" />
     <Compile Include="LoginWindow.xaml.cs">
@@ -100,9 +102,13 @@
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ChatViewModel.cs" />
+    <Compile Include="ViewModels\NewChatViewModel.cs" />
     <Compile Include="ViewModels\ObservableObject.cs" />
     <Compile Include="Views\ChatView.xaml.cs">
       <DependentUpon>ChatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewChatView.xaml.cs">
+      <DependentUpon>NewChatView.xaml</DependentUpon>
     </Compile>
     <Page Include="ChatWindow.xaml">
       <SubType>Designer</SubType>
@@ -129,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewChatView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

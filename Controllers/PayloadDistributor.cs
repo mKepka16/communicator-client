@@ -35,6 +35,12 @@ namespace communicator_client.Controllers
                 case "messageReceive":
                     new MessageReceiveController(payload.data);
                     break;
+                case "userExists":
+                    new UserExistenceController("success");
+                    break;
+                case "userDoesNotExist":
+                    new UserExistenceController("fail");
+                    break;
             }
         }
     }

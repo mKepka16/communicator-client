@@ -13,7 +13,7 @@
 			<Setter Property="Cursor" Value="Hand"></Setter>
 			<Setter Property="BorderThickness" Value="0"></Setter>
 			<Setter Property="Foreground" Value="White"></Setter>
-			<Setter Property="Padding" Value="5 5 5 10"></Setter>
+			<Setter Property="Padding" Value="5 5 5 8"></Setter>
             <Setter Property="FontSize" Value="22"></Setter>
 		</Style>
 	</Window.Resources>

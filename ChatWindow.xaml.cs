@@ -26,13 +26,15 @@ namespace communicator_client
     {
         public static ChatWindow chatWindow;
         public static ChatListModel listModel;
+        public static ChatViewModel chatViewModel;
 
         public ChatWindow()
         {
             InitializeComponent();
             SendLoggedInInfo();
 
-            DataContext = new ChatViewModel();
+            chatViewModel = new ChatViewModel();
+            DataContext = chatViewModel;
             listModel = new ChatListModel();
             ChatList.DataContext = listModel;
         }
@@ -44,6 +46,11 @@ namespace communicator_client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (NewChatView.isOpened)
+            {
+                NewChatView.isOpened = false;
+                DataContext = chatViewModel;
+            }
             string content = ((Button)sender).Content.ToString();
             string tag = ((Button)sender).Tag.ToString();
             int id = int.Parse(tag);
@@ -52,6 +59,18 @@ namespace communicator_client
             Payload payload = new Payload("chatRequest", requestData.ToString());
             Connection.Send(payload.ToString());
             ChatView.chatViewModel.ChatId = id;
+        }
+
+        private void ChangeToNewChatView(object sender, RoutedEventArgs e)
+        {
+            DataContext = new NewChatViewModel();
+            NewChatView.isOpened = true;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.MinWidth = this.Width;
+            this.MinHeight = this.Height;
         }
     }
 }
