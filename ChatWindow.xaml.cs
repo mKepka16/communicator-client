@@ -65,12 +65,30 @@ namespace communicator_client
         {
             DataContext = new NewChatViewModel();
             NewChatView.isOpened = true;
+            NewChatView.newChatViewModel.ClearView();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.MinWidth = this.Width;
             this.MinHeight = this.Height;
+        }
+
+        public void SetStartingView()
+        {
+            if(listModel.List.Count > 0)
+            {
+                int id = listModel.List[0].Id;
+                string content = listModel.List[0].Name;
+                ChatRequestData requestData = new ChatRequestData(id, content);
+                Payload payload = new Payload("chatRequest", requestData.ToString());
+                Connection.Send(payload.ToString());
+                ChatView.chatViewModel.ChatId = id;
+                return;
+            }
+
+            DataContext = new NewChatViewModel();
+            NewChatView.isOpened = true;
         }
     }
 }

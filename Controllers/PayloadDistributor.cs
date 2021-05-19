@@ -39,7 +39,13 @@ namespace communicator_client.Controllers
                     new UserExistenceController("success");
                     break;
                 case "userDoesNotExist":
-                    new UserExistenceController("fail");
+                    new UserExistenceController("fail", payload.data);
+                    break;
+                case "groupExists":
+                    new GroupExistenceController(true, payload.data);
+                    break;
+                case "groupDoesNotExist":
+                    new GroupExistenceController(false);
                     break;
             }
         }

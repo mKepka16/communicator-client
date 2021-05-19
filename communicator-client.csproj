@@ -76,6 +76,8 @@
     <Compile Include="Connection.cs" />
     <Compile Include="Controllers\ChatHistoryController.cs" />
     <Compile Include="Controllers\ChatsListController.cs" />
+    <Compile Include="Controllers\Client.cs" />
+    <Compile Include="Controllers\GroupExistenceController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageReceiveController.cs" />
     <Compile Include="Controllers\PayloadDistributor.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="DataTypes\LoginData.cs" />
     <Compile Include="DataTypes\MessageReceiveData.cs" />
     <Compile Include="DataTypes\MessageSendData.cs" />
+    <Compile Include="DataTypes\NewChatData.cs" />
     <Compile Include="DataTypes\NickData.cs" />
     <Compile Include="DataTypes\Payload.cs" />
     <Compile Include="DataTypes\RegisterData.cs" />

@@ -21,7 +21,7 @@ namespace communicator_client.Models
 
         public void SetList(ChatListData listData)
         {
-
+            List.Clear();
             List<ChatListItemData> list = listData.ChatList;
             foreach (ChatListItemData item in list)
             {
