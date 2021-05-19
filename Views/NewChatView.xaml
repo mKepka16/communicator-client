@@ -107,7 +107,7 @@
             x:Name="invalidUserError"
             Grid.Row="4" 
             Grid.Column="2"
-            Foreground="Black"
+            Foreground="#FFFF4444"
             Text=""
             FontSize="14"
             TextAlignment="Center"
@@ -135,6 +135,7 @@
                             Margin="15 5">
                             <Button 
                                 x:Name="DeleteUserButton" 
+                                Cursor="Hand"
                                 Tag="{Binding Nick}"
                                 Click="DeleteUserButton_Click"
                                 FontFamily="Segoe UI Symbol" 

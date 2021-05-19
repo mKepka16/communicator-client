@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace communicator_client
 {
@@ -45,11 +46,19 @@ namespace communicator_client
         public static void Read()
         {
             string readData;
-            while (true)
+            try
             {
-                readData = reader.ReadString();
-                Payload payload = Payload.Deserialize(readData);
-                PayloadDistributor.Distribute(payload);
+                while (true)
+                {
+                    readData = reader.ReadString();
+                    Payload payload = Payload.Deserialize(readData);
+                    PayloadDistributor.Distribute(payload);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Server is not available");
+                Environment.Exit(0);
             }
         }
     }
