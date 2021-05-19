@@ -77,15 +77,23 @@
                 BorderThickness="1 1 1 1"
                 FontSize="16"
                 Padding="6"
-                Grid.Column="0" BorderBrush="#FFF0F0F0" KeyDown="messageInput_KeyDown"/>
+                Grid.Column="0" 
+                BorderBrush="#B8B8B8" 
+                KeyDown="messageInput_KeyDown"/>
             <Button x:Name="sendButton"
+                FontFamily="Segoe UI Symbol" 
                 BorderThickness="0"
-                FontSize="16"
+                FontSize="24"
                 Padding="10 0"
-                Background="#FFF0F0F0"
+                Background="#FF31E895"
                 Cursor="Hand"
-                Grid.Column="1" Click="sendButton_Click">
-                Wyślij
+                Grid.Column="1" 
+                Click="sendButton_Click"
+                Content="&#x2B9E;"
+                Width="50"
+                Foreground="White"
+                HorizontalAlignment="Center">
+                
             </Button>
         </Grid>
     </Grid>

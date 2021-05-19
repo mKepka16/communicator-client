@@ -30,11 +30,13 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="returnButton"
-            Content="&lt;- Cofnij"
+            FontFamily="Segoe UI Symbol" 
+            Content="&#x1F804;"
             Grid.Row="1"
             HorizontalAlignment="Left"
-            Padding="8,0"
-            FontSize="18"
+            Padding="0 1 0 3"
+            FontSize="30"
+            Width="60"
             Background="White"
             BorderThickness="0"
             Cursor="Hand"

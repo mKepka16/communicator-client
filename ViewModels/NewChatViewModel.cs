@@ -69,7 +69,6 @@ namespace communicator_client.ViewModels
 
         public void ManageChatNameInputVisibility()
         {
-            MessageBox.Show(UsersList.Count.ToString());
             if (UsersList.Count > 1)
             {
                 ChatNameInputVisibility = Visibility.Visible;
@@ -111,6 +110,7 @@ namespace communicator_client.ViewModels
             Nick = "";
             UsersList.Clear();
             ChatName = "";
+            ChatNameInputVisibility = Visibility.Collapsed;
         }
 
         public bool IsOnList(NickData nick)
