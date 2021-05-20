@@ -38,23 +38,28 @@ namespace communicator_client.ViewModels
         {
             Title = chatHistory.Name;
             Messages.Clear();
+            string lastNick = "";
             foreach (ChatMessageData message in chatHistory.ChatHistory)
             {
-                MessageData UiMessage = new MessageData(message.Content, message.SenderNick, message.IsMyMessage);
+                MessageData UiMessage = new MessageData(message.Content, message.SenderNick, message.IsMyMessage, lastNick);
                 Messages.Add(UiMessage);
+                lastNick = message.SenderNick;
             }
             ChatView.chatView.ScrollDown();
         }
 
         public void AddMessage(MessageReceiveData message)
         {
-            Messages.Add(new MessageData(message.Content, message.Author, false));
+            string lastNick = "";
+            if(Messages.Count > 0)
+                lastNick = Messages[Messages.Count - 1].Author;
+            Messages.Add(new MessageData(message.Content, message.Author, false, lastNick));
             ChatView.chatView.ScrollDown();
         }
 
         public void AddMessage(string message)
         {
-            Messages.Add(new MessageData(message, "", true));
+            Messages.Add(new MessageData(message, "", true, ""));
             ChatView.chatView.ScrollDown();
         }
     }
@@ -66,12 +71,14 @@ namespace communicator_client.ViewModels
         public string Alignment { get; set; }
         public Visibility AuthorVisibility { get; set; }
 
-        public MessageData(string Content, string Author, bool IsOwnMessage)
+        public MessageData(string Content, string Author, bool IsOwnMessage, string lastAuthor)
         {
             this.Content = Content;
             this.Author = Author;
             Alignment = IsOwnMessage ? "Right" : "Left";
             AuthorVisibility = IsOwnMessage ? Visibility.Collapsed : Visibility.Visible;
+            if (!IsOwnMessage && lastAuthor == Author)
+                AuthorVisibility = Visibility.Collapsed;
         }
     }
 }
